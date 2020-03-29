@@ -1,0 +1,98 @@
+import java.util. Scanner;
+
+class NinePalace[
+
+public
+
+static void main(String[]
+
+args)l
+
+// 定义N为九宫格的行列数，需要输入
+
+System. out printn("请输入九宫格的行列规模(只能是奇数的)");Scanner n = new Scanner(System in);
+
+ int N;
+
+//判断格局是否奇数( 可判断出偶数、负数及小数)
+
+double d;
+
+while (true){
+
+d = n.nextDouble0;
+
+N = (int)d;
+
+if ((dN)>1.0E-4|N%2==0|N<0)
+
+{System.out.printIn("输入出错格局只能是正奇数。请重新输入"):}
+
+else break;
+
+1/老师的九宫格填写方法
+
+int[][] result = new int[N][N]; //定 义保存九宫格的数组
+
+int row= 0;行初始位置
+
+int col = N/2;列初始位置，因为列由0开始，故N/2 是中间位置for (int i=1; i<=N*N; i++){
+result [row][col] = i;
+
+rOW--;
+
+col++; ;
+
+if (row<0&&col>=N)(co1-- ;row+=2;] AF 7l???#tè 5else if (row<0){ row = N-1;} //行越界
+
+else if (col>=N){col = 0:}//列越界
+
+3else if (result[row][col] != 0)(col--;row+=2;// i?
+
+//打印出九宫格
+
+for (int i=0; i<N;
+
+i++)
+
+for(int j=0; j<N; j++)(System.out.print(result[j][]+"t");)System.out. printlnO;
+//我个人的填格方式
+
+int[][] result2 = new int[N][N]://为免冲突， 重新new一个数组
+
+result2[N/2]N/2] = (N*N+1)/2; /先把中间值赋予中间位置
+
+row= 0; //定义 行及列的初始赋值位置。之前赋值的for对两个值有影响，故需
+
+重新定位
+
+col = N/2;
+
+for (int i=1; i<=N*N/2; i++){
+
+result2[row][co1] = i
+
+//下面这句是把跟i对应的值放到格局对应的位置上result2[N-row-1][N-col-1] = N*N+1-i;
+
+row--;
+
+col++;
+if (row<0){ row = N-1;} //行越界
+
+else if (colI>=N){col = 0:}//列越 界
+
+else if (result2[row][co1] != 0){o-row+=2:}/有冲突
+
+//这方法不可能出现行列两边都越界的情祝，详情需要数学论证}
+
+System.out.printlnO;
+
+//1 再次打印出九宫格，以对比验证
+
+for (int i=0; i<N; i++){
+
+for(int j=0; j<N; j++){System.out. print(result2[][j]+"\t"):}System.out. printlnO;
+
+}}
+
+ 
